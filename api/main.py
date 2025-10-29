@@ -77,7 +77,7 @@ def select_all_item_records():
 
 
 # this POST route inserts a new record in a database table
-@app.post("/item")
+@app.post("/items")
 def insert_new_item_record(new_item_name = Body(...), new_item_desc = Body(...),):    
     """
     POST a record to database table
