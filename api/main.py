@@ -77,7 +77,7 @@ def select_all_item_records():
 
 
 # this POST route inserts a new record in a database table
-@app.post("/items")
+@app.post("/item")
 def insert_new_item_record(new_item_name = Body(...), new_item_desc = Body(...),):    
     """
     POST a record to database table
@@ -85,6 +85,13 @@ def insert_new_item_record(new_item_name = Body(...), new_item_desc = Body(...),
     cur.execute("INSERT INTO items (item_name,item_desc) VALUES (%s,%s)", (new_item_name, new_item_desc) ) 
     conn.commit()
     return {"success":True, "message": "new record added"}
+
+
+# Usage notes:
+# 1. Put this code in api/main.py and deploy as a Vercel project
+# 2. Make sure you have a database connected to the Vercel project
+# 3. Test by using your-vercel-backend-url/docs
+# 4. Later call from front-end using JavaScript fetch()
 
 
 # Usage notes:
